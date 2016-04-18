@@ -37,7 +37,7 @@
     "coveralls": "^2.11.9",
     "eslint": "^2.5.1",
     "eslint-config-airbnb": "^7.0.0",
-    "eslint-plugin-react": "^4.2.3",
+    "eslint-plugin-react": "^5.0.0",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
