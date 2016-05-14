@@ -1,9 +1,0 @@
-lib
-test
-
-gulpfile.js
-
-.gitignore
-.babelrc
-.eslintrc
-.travis.yml
