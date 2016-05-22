@@ -5,7 +5,7 @@ import path from 'path';
 import es from 'event-stream';
 import { expect } from 'chai';
 
-import html2pug from '../dist';
+import html2pug from '../src';
 
 const convertedPug = `
 meta
