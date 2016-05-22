@@ -35,8 +35,8 @@ function gulpHtml2pug({ encoding = 'utf8' } = {}) {
       }
 
       const dirname = path.dirname(file.path);
-      const basename = path.basename(file.path);
-      newFile.path = path.join(dirname, basename.replace(path.extname(basename), '.pug'));
+      const basename = path.basename(file.path, path.extname(file.path));
+      newFile.path = path.join(dirname, `${basename}.pug`);
       // make sure the file goes through the next gulp plugin
       this.push(newFile);
     })
