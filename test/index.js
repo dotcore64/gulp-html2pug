@@ -3,7 +3,7 @@ import { PassThrough } from 'stream';
 
 import path from 'path';
 import es from 'event-stream';
-import chai from 'chai';
+import { expect } from 'chai';
 
 import html2pug from '../dist';
 
@@ -12,8 +12,6 @@ meta
 title
   | gulp-html2pug test
 |  gulp html2pug test`;
-
-chai.should();
 
 describe('gulp-html2pug', () => {
   describe('in streaming mode', () => {
@@ -31,13 +29,13 @@ describe('gulp-html2pug', () => {
       // wait for the file to come back out
       converter.once('data', file => {
         // make sure it came out the same way it went in
-        file.isStream().should.equal(true);
-        path.basename(file.path).should.equal('index.pug');
+        expect(file.isStream()).to.equal(true);
+        expect(path.basename(file.path)).to.equal('index.pug');
 
         // buffer the contents to make sure it got prepended to
         file.contents.pipe(es.wait((err, data) => {
           // check the contents
-          data.toString().should.equal(convertedPug);
+          expect(data.toString()).to.equal(convertedPug);
           done();
         }));
       });
@@ -59,11 +57,11 @@ describe('gulp-html2pug', () => {
       // wait for the file to come back out
       converter.once('data', file => {
         // make sure it came out the same way it went in
-        file.isBuffer().should.equal(true);
-        path.basename(file.path).should.equal('index.pug');
+        expect(file.isBuffer()).to.equal(true);
+        expect(path.basename(file.path)).to.equal('index.pug');
 
         // buffer the contents to make sure it got prepended to
-        file.contents.toString().should.equal(convertedPug);
+        expect(file.contents.toString()).to.equal(convertedPug);
         done();
       });
     });
