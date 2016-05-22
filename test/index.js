@@ -1,11 +1,11 @@
-const File = require('vinyl');
-const PassThrough = require('stream').PassThrough;
+import File from 'vinyl';
+import { PassThrough } from 'stream';
 
-const chai = require('chai');
-const path = require('path');
-const es = require('event-stream');
+import path from 'path';
+import es from 'event-stream';
+import chai from 'chai';
 
-const html2pug = require('../dist');
+import html2pug from '../dist';
 
 const convertedPug = `
 meta
