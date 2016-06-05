@@ -3,6 +3,7 @@ import { PassThrough } from 'stream';
 
 import path from 'path';
 import es from 'event-stream';
+import { readFileSync } from 'fs';
 import { expect } from 'chai';
 
 import html2pug from '../src';
@@ -21,6 +22,8 @@ describe('gulp-html2pug', () => {
         path: 'test/index.html',
         contents: new PassThrough(),
       });
+      pugFile.contents.write(readFileSync('test/index.html'));
+      pugFile.contents.end();
 
       // Create a prefixer plugin stream
       const converter = html2pug();
@@ -47,7 +50,7 @@ describe('gulp-html2pug', () => {
       // create the fake file
       const pugFile = new File({
         path: 'test/index.html',
-        contents: new Buffer(''),
+        contents: new Buffer(readFileSync('test/index.html')),
       });
 
       // Create a prefixer plugin stream

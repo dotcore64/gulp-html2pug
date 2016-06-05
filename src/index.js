@@ -1,26 +1,33 @@
 const Promise = require('bluebird');
 
-const fs = require('fs');
 const path = require('path');
 const gutil = require('gulp-util');
 const through = require('through2');
 const html2pug = require('html2pug');
+const streamToString = require('stream-to-string');
 
 const PluginError = gutil.PluginError;
 
 // consts
 const PLUGIN_NAME = 'gulp-html2pug';
 
-fs.readFileAsync = Promise.promisify(fs.readFile);
+function getHtml(file, enc) {
+  if (file.isBuffer()) {
+    return Promise.resolve(file.contents.toString(enc));
+  } else if (file.isStream()) {
+    return streamToString(file.contents);
+  }
 
+  throw new PluginError(PLUGIN_NAME, 'Invalid file');
+}
 
 // plugin level function (dealing with files)
-function gulpHtml2pug({ encoding = 'utf8' } = {}) {
+function gulpHtml2pug() {
   // creating a stream through which each file will pass
   return through.obj(function (file, enc, cb) {
     const newFile = file.clone();
 
-    fs.readFileAsync(file.path, encoding)
+    getHtml(file, enc)
     .then(html => {
       const pug = html2pug(html);
 
@@ -28,6 +35,7 @@ function gulpHtml2pug({ encoding = 'utf8' } = {}) {
         newFile.contents = new Buffer(pug);
       } else if (file.isStream()) {
         // start the transformation
+        newFile.contents = through();
         newFile.contents.write(pug);
         newFile.contents.end();
       } else {
@@ -39,8 +47,8 @@ function gulpHtml2pug({ encoding = 'utf8' } = {}) {
       newFile.path = path.join(dirname, `${basename}.pug`);
       // make sure the file goes through the next gulp plugin
       this.push(newFile);
-    })
-    .asCallback(cb);
+      cb();
+    });
   });
 }
 
