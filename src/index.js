@@ -1,12 +1,10 @@
-const Promise = require('bluebird');
+import Promise from 'bluebird';
 
-const path = require('path');
-const gutil = require('gulp-util');
-const through = require('through2');
-const html2pug = require('html2pug');
-const streamToString = require('stream-to-string');
-
-const PluginError = gutil.PluginError;
+import path from 'path';
+import through from 'through2';
+import html2pug from 'html2pug';
+import streamToString from 'stream-to-string';
+import { PluginError } from 'gulp-util';
 
 // consts
 const PLUGIN_NAME = 'gulp-html2pug';
