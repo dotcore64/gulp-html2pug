@@ -13,6 +13,7 @@ function getHtml(file, enc) {
   if (file.isBuffer()) {
     return Promise.resolve(file.contents.toString(enc));
   } else if (file.isStream()) {
+    file.contents.setEncoding(enc);
     return streamToString(file.contents);
   }
 
