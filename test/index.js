@@ -9,10 +9,12 @@ import { expect } from 'chai';
 import html2pug from '../src';
 
 const convertedPug = `
-meta
-title
-  | gulp-html2pug test
-|  gulp html2pug test`;
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title gulp-html2pug test
+  body gulp html2pug test`;
 
 describe('gulp-html2pug', () => {
   describe('in streaming mode', () => {
