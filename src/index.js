@@ -27,9 +27,8 @@ function gulpHtml2pug() {
     const newFile = file.clone();
 
     getHtml(file, enc)
-    .then(html => {
-      const pug = html2pug(html);
-
+    .then(html => html2pug(html))
+    .then(pug => {
       if (file.isBuffer()) {
         newFile.contents = new Buffer(pug);
       } else if (file.isStream()) {
