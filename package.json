@@ -32,7 +32,7 @@
   "homepage": "https://github.com/perrin4869/gulp-html2pug#readme",
   "dependencies": {
     "bluebird": "^3.3.5",
-    "html2pug": "0.0.0",
+    "html2pug": "0.0.1",
     "stream-to-string": "^1.0.1",
     "through2": "^2.0.1"
   },
