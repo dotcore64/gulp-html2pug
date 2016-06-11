@@ -1,24 +1,11 @@
-import Promise from 'bluebird';
-
 import path from 'path';
 import through from 'through2';
 import html2pug from 'html2pug';
-import streamToString from 'stream-to-string';
+import vinylToString from 'vinyl-contents-tostring';
 import { PluginError } from 'gulp-util';
 
 // consts
 const PLUGIN_NAME = 'gulp-html2pug';
-
-function getHtml(file, enc) {
-  if (file.isBuffer()) {
-    return Promise.resolve(file.contents.toString(enc));
-  } else if (file.isStream()) {
-    file.contents.setEncoding(enc);
-    return streamToString(file.contents);
-  }
-
-  throw new PluginError(PLUGIN_NAME, 'Invalid file');
-}
 
 // plugin level function (dealing with files)
 function gulpHtml2pug() {
@@ -26,7 +13,7 @@ function gulpHtml2pug() {
   return through.obj(function (file, enc, cb) {
     const newFile = file.clone();
 
-    getHtml(file, enc)
+    vinylToString(file, enc)
     .then(html => html2pug(html))
     .then(pug => {
       if (file.isBuffer()) {
