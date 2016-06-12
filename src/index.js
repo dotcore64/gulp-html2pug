@@ -21,8 +21,7 @@ function gulpHtml2pug() {
       } else if (file.isStream()) {
         // start the transformation
         newFile.contents = through();
-        newFile.contents.write(pug);
-        newFile.contents.end();
+        newFile.contents.end(pug);
       } else {
         throw new PluginError(PLUGIN_NAME, 'Invalid file');
       }
