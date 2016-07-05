@@ -43,7 +43,7 @@
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "eslint": "^2.12.0",
-    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-config-airbnb-base": "^4.0.0",
     "eslint-plugin-import": "^1.8.1",
     "event-stream": "^3.3.2",
     "gulp": "^3.9.1",
