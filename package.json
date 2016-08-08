@@ -50,7 +50,7 @@
     "gulp-eslint": "^3.0.1",
     "gulp-mocha": "^2.2.0",
     "istanbul": "^1.1.0-alpha.1",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.2",
     "vinyl": "^1.1.1"
   }
 }
