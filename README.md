@@ -1,5 +1,7 @@
 # gulp-html2pug
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/perrin4869/gulp-html2pug.svg)](https://greenkeeper.io/)
+
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coverage Status][coveralls-badge]][coveralls]
