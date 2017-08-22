@@ -6,23 +6,23 @@ const eslint = require('gulp-eslint');
 
 const src = 'src/index.js';
 
-gulp.task('lint', () =>
-  gulp.src(src)
-  .pipe(eslint())
-  .pipe(eslint.format())
-);
-
-gulp.task('build', ['lint'], () => (
-  gulp.src(src)
-  .pipe(babel())
-  .pipe(gulp.dest('dist'))
+gulp.task('lint', () => (
+  gulp.src([src, 'test/*.js', 'gulpfile.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
 ));
 
-gulp.task('test', ['lint'], () => (
+gulp.task('build', ['lint'], () => ((
+  gulp.src(src)
+    .pipe(babel())
+    .pipe(gulp.dest('dist'))
+)));
+
+gulp.task('test', ['lint'], () => ((
   gulp.src('test')
-  .pipe(mocha())
-  .on('error', util.log)
-));
+    .pipe(mocha())
+    .on('error', util.log)
+)));
 
 gulp.task('watch', () => {
   gulp.watch(src, ['test']);

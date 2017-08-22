@@ -1,6 +1,7 @@
 {
   "extends": "airbnb-base",
   "rules": {
-    "func-names": 0 // Needed for this binding
+    "func-names": 0,
+    "import/no-extraneous-dependencies": ["error", { devDependencies: ["gulpfile.js"] }]
   }
 }

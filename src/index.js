@@ -14,25 +14,25 @@ function gulpHtml2pug() {
     const newFile = file.clone();
 
     vinylToString(file, enc)
-    .then(html => html2pug(html))
-    .then(pug => {
-      if (file.isBuffer()) {
-        newFile.contents = new Buffer(pug);
-      } else if (file.isStream()) {
-        // start the transformation
-        newFile.contents = through();
-        newFile.contents.end(pug);
-      } else {
-        throw new PluginError(PLUGIN_NAME, 'Invalid file');
-      }
+      .then(html => html2pug(html))
+      .then((pug) => {
+        if (file.isBuffer()) {
+          newFile.contents = new Buffer(pug);
+        } else if (file.isStream()) {
+          // start the transformation
+          newFile.contents = through();
+          newFile.contents.end(pug);
+        } else {
+          throw new PluginError(PLUGIN_NAME, 'Invalid file');
+        }
 
-      const dirname = path.dirname(file.path);
-      const basename = path.basename(file.path, path.extname(file.path));
-      newFile.path = path.join(dirname, `${basename}.pug`);
-      // make sure the file goes through the next gulp plugin
-      this.push(newFile);
-      cb();
-    });
+        const dirname = path.dirname(file.path);
+        const basename = path.basename(file.path, path.extname(file.path));
+        newFile.path = path.join(dirname, `${basename}.pug`);
+        // make sure the file goes through the next gulp plugin
+        this.push(newFile);
+        cb();
+      });
   });
 }
 
