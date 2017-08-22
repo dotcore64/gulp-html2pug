@@ -8,8 +8,7 @@ import { expect } from 'chai';
 
 import html2pug from '../src';
 
-const convertedPug = `
-doctype html
+const convertedPug = `doctype html
 html(lang='en')
   head
     meta(charset='UTF-8')
