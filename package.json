@@ -37,8 +37,8 @@
     "vinyl-contents-tostring": "1.0.0"
   },
   "devDependencies": {
-    "babel-core": "^6.13.2",
     "babel-preset-es2015": "^6.13.2",
+    "babel-register": "^6.26.0",
     "chai": "^3.5.0",
     "coveralls": "^2.11.12",
     "eslint-config-airbnb-base": "^5.0.2",
