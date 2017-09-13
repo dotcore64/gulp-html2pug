@@ -51,7 +51,7 @@ describe('gulp-html2pug', () => {
       // create the fake file
       const pugFile = new File({
         path: 'test/index.html',
-        contents: new Buffer(readFileSync('test/index.html')),
+        contents: Buffer.from(readFileSync('test/index.html')),
       });
 
       // Create a prefixer plugin stream

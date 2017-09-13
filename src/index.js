@@ -17,7 +17,7 @@ function gulpHtml2pug() {
       .then(html => html2pug(html))
       .then((pug) => {
         if (file.isBuffer()) {
-          newFile.contents = new Buffer(pug);
+          newFile.contents = Buffer.from(pug);
         } else if (file.isStream()) {
           // start the transformation
           newFile.contents = through();
