@@ -25,7 +25,7 @@ const html2pug = require('gulp-html2pug');
 gulp.task('pug', function() {
   // Backend locales
   return gulp.src('index.html')
-  .pipe(html2pug())
+  .pipe(html2pug(/* options for html2pug such as { fragment: true } */))
   .pipe(gulp.dest('pug'));
 });
 ```

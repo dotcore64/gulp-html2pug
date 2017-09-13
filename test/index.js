@@ -70,4 +70,29 @@ describe('gulp-html2pug', () => {
       });
     });
   });
+
+  describe('html2pug options', () => {
+    it('should convert given html fragment file', (done) => {
+      // create the fake file
+      const pugFile = new File({
+        path: 'test/fragment.html',
+        contents: Buffer.from(readFileSync('test/fragment.html')),
+      });
+
+      // Create a prefixer plugin stream
+      const converter = html2pug({ fragment: true });
+      converter.write(pugFile);
+
+      // wait for the file to come back out
+      converter.once('data', (file) => {
+        // make sure it came out the same way it went in
+        expect(file.isBuffer()).to.equal(true);
+        expect(path.basename(file.path)).to.equal('fragment.pug');
+
+        // buffer the contents to make sure it got prepended to
+        expect(file.contents.toString()).to.equal('div foo');
+        done();
+      });
+    });
+  });
 });

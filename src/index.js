@@ -8,13 +8,13 @@ import { PluginError } from 'gulp-util';
 const PLUGIN_NAME = 'gulp-html2pug';
 
 // plugin level function (dealing with files)
-function gulpHtml2pug() {
+function gulpHtml2pug(options = {}) {
   // creating a stream through which each file will pass
   return through.obj(function (file, enc, cb) {
     const newFile = file.clone();
 
     vinylToString(file, enc)
-      .then(html => html2pug(html))
+      .then(html => html2pug(html, options))
       .then((pug) => {
         if (file.isBuffer()) {
           newFile.contents = Buffer.from(pug);
