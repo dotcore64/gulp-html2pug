@@ -2,7 +2,7 @@ import path from 'path';
 import through from 'through2';
 import html2pug from 'html2pug';
 import vinylToString from 'vinyl-contents-tostring';
-import { PluginError } from 'gulp-util';
+import PluginError from 'plugin-error';
 
 // consts
 const PLUGIN_NAME = 'gulp-html2pug';
