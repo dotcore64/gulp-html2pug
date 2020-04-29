@@ -1,5 +1,5 @@
 module.exports = {
   reporter: 'spec',
   ui: 'bdd',
-  require: ['@babel/register'],
+  require: ['esm', 'env-test', '@babel/register'],
 };

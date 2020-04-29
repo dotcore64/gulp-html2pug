@@ -6,7 +6,7 @@ import es from 'event-stream';
 import { readFileSync } from 'fs';
 import { expect } from 'chai';
 
-import html2pug from '../src';
+import html2pug from '..';
 
 const convertedPug = `doctype html
 html(lang='en')

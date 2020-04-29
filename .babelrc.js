@@ -1,7 +1,8 @@
-module.exports = ({ env }) => ({
-  presets: [['@babel/env', { targets: { node: env('test') ? 'current' : '10' } }]],
-  plugins: [
-    '@babel/proposal-throw-expressions',
-    env('test') && 'istanbul',
-  ].filter(Boolean),
-})
+module.exports = ({ env }) => env('test')
+  ? {
+    plugins: ['istanbul'],
+  }
+  : {
+    presets: [['@babel/env', { targets: { node: '10' } }]],
+    plugins: ['@babel/proposal-throw-expressions'],
+  };
