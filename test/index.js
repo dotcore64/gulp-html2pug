@@ -1,12 +1,12 @@
-import File from 'vinyl';
-import { PassThrough } from 'stream';
+const File = require('vinyl');
+const { PassThrough } = require('stream');
 
-import { basename } from 'path';
-import es from 'event-stream';
-import { readFileSync } from 'fs';
-import { expect } from 'chai';
+const { basename } = require('path');
+const es = require('event-stream');
+const { readFileSync } = require('fs');
+const { expect } = require('chai');
 
-import html2pug from '..';
+const html2pug = require('..');
 
 const convertedPug = `doctype html
 html(lang='en')

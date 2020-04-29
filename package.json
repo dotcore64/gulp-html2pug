@@ -6,11 +6,11 @@
   "scripts": {
     "build": "babel src -d lib -s",
     "lint": "eslint 'src/*.js' 'test/*.js'",
-    "pretest": "npm run build && npm run lint",
+    "pretest": "npm run lint",
     "test": "mocha",
     "cover": "nyc npm test",
     "coveralls": "npm run cover && nyc report --reporter=text-lcov | coveralls",
-    "prepare": "npm run test"
+    "prepare": "npm run build && npm test"
   },
   "files": [
     "lib"
@@ -43,7 +43,6 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-throw-expressions": "^7.8.3",
-    "@babel/preset-env": "^7.9.5",
     "@babel/register": "^7.9.0",
     "@istanbuljs/nyc-config-babel": "^3.0.0",
     "babel-eslint": "^10.1.0",
@@ -54,7 +53,6 @@
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "eslint-plugin-import": "^2.20.2",
-    "esm": "^3.2.25",
     "event-stream": "^4.0.1",
     "mocha": "^7.1.2",
     "nyc": "^15.0.1",

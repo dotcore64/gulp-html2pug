@@ -1,8 +1,8 @@
-import through from 'through2';
-import html2pug from 'html2pug';
-import vinylToString from 'vinyl-contents-tostring';
-import asCallback from 'standard-as-callback';
-import PluginError from 'plugin-error';
+const through = require('through2');
+const html2pug = require('html2pug');
+const vinylToString = require('vinyl-contents-tostring');
+const asCallback = require('standard-as-callback');
+const PluginError = require('plugin-error');
 
 const PLUGIN_NAME = 'gulp-html2pug';
 
