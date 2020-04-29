@@ -1,7 +1,7 @@
 const through = require('through2');
 const html2pug = require('html2pug');
 const vinylToString = require('vinyl-contents-tostring');
-const asCallback = require('standard-as-callback');
+const asCallback = require('standard-as-callback').default;
 const PluginError = require('plugin-error');
 
 const PLUGIN_NAME = 'gulp-html2pug';
