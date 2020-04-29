@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/perrin4869/gulp-html2pug.git"
+    "url": "git+https://github.com/dotcore64/gulp-html2pug.git"
   },
   "keywords": [
     "gulp",
@@ -29,9 +29,9 @@
   "author": "Julian Grinblat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/perrin4869/gulp-html2pug/issues"
+    "url": "https://github.com/dotcore64/gulp-html2pug/issues"
   },
-  "homepage": "https://github.com/perrin4869/gulp-html2pug#readme",
+  "homepage": "https://github.com/dotcore64/gulp-html2pug#readme",
   "dependencies": {
     "html2pug": "^4.0.0",
     "plugin-error": "^1.0.1",

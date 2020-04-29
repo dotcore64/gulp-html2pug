@@ -34,17 +34,17 @@ gulp.task('pug', function() {
 
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
-[build-badge]: https://img.shields.io/travis/perrin4869/gulp-html2pug/master.svg?style=flat-square
-[build]: https://travis-ci.org/perrin4869/gulp-html2pug
+[build-badge]: https://img.shields.io/travis/dotcore64/gulp-html2pug/master.svg?style=flat-square
+[build]: https://travis-ci.org/dotcore64/gulp-html2pug
 
 [npm-badge]: https://img.shields.io/npm/v/gulp-html2pug.svg?style=flat-square
 [npm]: https://www.npmjs.org/package/gulp-html2pug
 
-[coveralls-badge]: https://img.shields.io/coveralls/perrin4869/gulp-html2pug/master.svg?style=flat-square
-[coveralls]: https://coveralls.io/r/perrin4869/gulp-html2pug
+[coveralls-badge]: https://img.shields.io/coveralls/dotcore64/gulp-html2pug/master.svg?style=flat-square
+[coveralls]: https://coveralls.io/r/dotcore64/gulp-html2pug
 
-[dependency-status-badge]: https://david-dm.org/perrin4869/gulp-html2pug.svg?style=flat-square
-[dependency-status]: https://david-dm.org/perrin4869/gulp-html2pug
+[dependency-status-badge]: https://david-dm.org/dotcore64/gulp-html2pug.svg?style=flat-square
+[dependency-status]: https://david-dm.org/dotcore64/gulp-html2pug
 
-[dev-dependency-status-badge]: https://david-dm.org/perrin4869/gulp-html2pug/dev-status.svg?style=flat-square
-[dev-dependency-status]: https://david-dm.org/perrin4869/gulp-html2pug#info=devDependencies
+[dev-dependency-status-badge]: https://david-dm.org/dotcore64/gulp-html2pug/dev-status.svg?style=flat-square
+[dev-dependency-status]: https://david-dm.org/dotcore64/gulp-html2pug#info=devDependencies
