@@ -1,4 +1,3 @@
-import path from 'path';
 import through from 'through2';
 import html2pug from 'html2pug';
 import vinylToString from 'vinyl-contents-tostring';
@@ -14,7 +13,7 @@ function gulpHtml2pug(options = {}) {
     const newFile = file.clone();
 
     vinylToString(file, enc)
-      .then(html => html2pug(html, options))
+      .then((html) => html2pug(html, options))
       .then((pug) => {
         if (file.isBuffer()) {
           newFile.contents = Buffer.from(pug);
@@ -26,9 +25,7 @@ function gulpHtml2pug(options = {}) {
           throw new PluginError(PLUGIN_NAME, 'Invalid file');
         }
 
-        const dirname = path.dirname(file.path);
-        const basename = path.basename(file.path, path.extname(file.path));
-        newFile.path = path.join(dirname, `${basename}.pug`);
+        newFile.extname = '.pug';
         // make sure the file goes through the next gulp plugin
         this.push(newFile);
         cb();

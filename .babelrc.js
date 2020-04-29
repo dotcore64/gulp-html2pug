@@ -1,8 +1,4 @@
-const env = process.env.NODE_ENV || 'production';
-const targets = env === 'test' ? { node: 'current' } : { node: '6' };
-const plugins = env === 'test' ? ['istanbul'] : [];
-
-module.exports = {
-  presets: [['@babel/env', { targets }]],
-  plugins,
-}
+module.exports = ({ env }) => ({
+  presets: [['@babel/env', { targets: { node: env('test') ? 'current' : '10' } }]],
+  plugins: env('test') ? ['istanbul'] : [],
+})

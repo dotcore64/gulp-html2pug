@@ -1,7 +1,7 @@
 import File from 'vinyl';
 import { PassThrough } from 'stream';
 
-import path from 'path';
+import { basename } from 'path';
 import es from 'event-stream';
 import { readFileSync } from 'fs';
 import { expect } from 'chai';
@@ -27,14 +27,14 @@ describe('gulp-html2pug', () => {
       pugFile.contents.end();
 
       // Create a prefixer plugin stream
-      const converter = html2pug();
+      const converter = html2pug({ preserveLineBreaks: false });
       converter.write(pugFile);
 
       // wait for the file to come back out
       converter.once('data', (file) => {
         // make sure it came out the same way it went in
         expect(file.isStream()).to.equal(true);
-        expect(path.basename(file.path)).to.equal('index.pug');
+        expect(basename(file.path)).to.equal('index.pug');
 
         // buffer the contents to make sure it got prepended to
         file.contents.pipe(es.wait((err, data) => {
@@ -55,14 +55,14 @@ describe('gulp-html2pug', () => {
       });
 
       // Create a prefixer plugin stream
-      const converter = html2pug();
+      const converter = html2pug({ preserveLineBreaks: false });
       converter.write(pugFile);
 
       // wait for the file to come back out
       converter.once('data', (file) => {
         // make sure it came out the same way it went in
         expect(file.isBuffer()).to.equal(true);
-        expect(path.basename(file.path)).to.equal('index.pug');
+        expect(basename(file.path)).to.equal('index.pug');
 
         // buffer the contents to make sure it got prepended to
         expect(file.contents.toString()).to.equal(convertedPug);
@@ -80,14 +80,14 @@ describe('gulp-html2pug', () => {
       });
 
       // Create a prefixer plugin stream
-      const converter = html2pug({ fragment: true });
+      const converter = html2pug({ preserveLineBreaks: false, fragment: true });
       converter.write(pugFile);
 
       // wait for the file to come back out
       converter.once('data', (file) => {
         // make sure it came out the same way it went in
         expect(file.isBuffer()).to.equal(true);
-        expect(path.basename(file.path)).to.equal('fragment.pug');
+        expect(basename(file.path)).to.equal('fragment.pug');
 
         // buffer the contents to make sure it got prepended to
         expect(file.contents.toString()).to.equal('div foo');
