@@ -2,9 +2,11 @@ const File = require('vinyl');
 const { PassThrough } = require('stream');
 
 const { basename } = require('path');
-const es = require('event-stream');
 const { readFileSync } = require('fs');
 const { expect } = require('chai');
+const { spy } = require('sinon');
+const { fromEvent } = require('promise-toolbox');
+const vinylToString = require('vinyl-contents-tostring');
 
 const html2pug = require('..');
 
@@ -17,37 +19,38 @@ html(lang='en')
 
 describe('gulp-html2pug', () => {
   describe('in streaming mode', () => {
-    it('should convert given html file', (done) => {
+    it('should convert given html file', async () => {
+      const cb = spy();
+
       // create the fake file
       const pugFile = new File({
         path: 'test/index.html',
         contents: new PassThrough(),
       });
-      pugFile.contents.write(readFileSync('test/index.html'));
-      pugFile.contents.end();
+      pugFile.contents.end(readFileSync('test/index.html'));
 
       // Create a prefixer plugin stream
       const converter = html2pug({ preserveLineBreaks: false });
-      converter.write(pugFile);
+      converter.end(pugFile);
 
       // wait for the file to come back out
-      converter.once('data', (file) => {
-        // make sure it came out the same way it went in
-        expect(file.isStream()).to.equal(true);
-        expect(basename(file.path)).to.equal('index.pug');
+      converter.on('data', cb);
+      await fromEvent(converter, 'end');
 
-        // buffer the contents to make sure it got prepended to
-        file.contents.pipe(es.wait((err, data) => {
-          // check the contents
-          expect(data.toString()).to.equal(convertedPug);
-          done();
-        }));
-      });
+      expect(cb).to.have.been.calledOnce();
+      const file = cb.firstCall.args[0];
+
+      // make sure it came out the same way it went in
+      expect(file.isStream()).to.equal(true);
+      expect(file.basename).to.equal('index.pug');
+      return expect(vinylToString(file)).to.become(convertedPug);
     });
   });
 
   describe('in buffering mode', () => {
-    it('should convert given html file', (done) => {
+    it('should convert given html file', async () => {
+      const cb = spy();
+
       // create the fake file
       const pugFile = new File({
         path: 'test/index.html',
@@ -56,23 +59,25 @@ describe('gulp-html2pug', () => {
 
       // Create a prefixer plugin stream
       const converter = html2pug({ preserveLineBreaks: false });
-      converter.write(pugFile);
+      converter.end(pugFile);
 
       // wait for the file to come back out
-      converter.once('data', (file) => {
-        // make sure it came out the same way it went in
-        expect(file.isBuffer()).to.equal(true);
-        expect(basename(file.path)).to.equal('index.pug');
+      converter.on('data', cb);
+      await fromEvent(converter, 'end');
 
-        // buffer the contents to make sure it got prepended to
-        expect(file.contents.toString()).to.equal(convertedPug);
-        done();
-      });
+      expect(cb).to.have.been.calledOnce();
+
+      const file = cb.firstCall.args[0];
+      expect(file.isBuffer()).to.equal(true);
+      expect(basename(file.path)).to.equal('index.pug');
+      expect(file.contents.toString()).to.equal(convertedPug);
     });
   });
 
   describe('html2pug options', () => {
-    it('should convert given html fragment file', (done) => {
+    it('should convert given html fragment file', async () => {
+      const cb = spy();
+
       // create the fake file
       const pugFile = new File({
         path: 'test/fragment.html',
@@ -81,18 +86,17 @@ describe('gulp-html2pug', () => {
 
       // Create a prefixer plugin stream
       const converter = html2pug({ preserveLineBreaks: false, fragment: true });
-      converter.write(pugFile);
+      converter.end(pugFile);
 
-      // wait for the file to come back out
-      converter.once('data', (file) => {
-        // make sure it came out the same way it went in
-        expect(file.isBuffer()).to.equal(true);
-        expect(basename(file.path)).to.equal('fragment.pug');
+      converter.on('data', cb);
+      await fromEvent(converter, 'end');
 
-        // buffer the contents to make sure it got prepended to
-        expect(file.contents.toString()).to.equal('div foo');
-        done();
-      });
+      expect(cb).to.have.been.calledOnce();
+
+      const file = cb.firstCall.args[0];
+      expect(file.isBuffer()).to.equal(true);
+      expect(basename(file.path)).to.equal('fragment.pug');
+      expect(file.contents.toString()).to.equal('div foo');
     });
   });
 });

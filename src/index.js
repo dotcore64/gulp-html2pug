@@ -15,10 +15,9 @@ const convert = (file) => (pug) => Object.assign(file, {
   extname: '.pug',
 });
 
-// plugin level function (dealing with files)
-module.exports = (options = {}) => through.obj(function (file, enc, cb) {
-  asCallback(vinylToString(file, enc)
+module.exports = (options = {}) => through.obj((file, enc, cb) => asCallback(
+  vinylToString(file, enc)
     .then((html) => html2pug(html, options))
-    .then(convert(file.clone()))
-    .then(this.push.bind(this)), cb);
-});
+    .then(convert(file.clone())),
+  cb,
+));
