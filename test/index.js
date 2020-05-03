@@ -1,8 +1,6 @@
 const File = require('vinyl');
-const { PassThrough } = require('stream');
 
-const { basename } = require('path');
-const { readFileSync } = require('fs');
+const { readFileSync, createReadStream } = require('fs');
 const { expect } = require('chai');
 const { spy } = require('sinon');
 const { fromEvent } = require('promise-toolbox');
@@ -25,9 +23,8 @@ describe('gulp-html2pug', () => {
       // create the fake file
       const pugFile = new File({
         path: 'test/index.html',
-        contents: new PassThrough(),
+        contents: createReadStream('test/index.html'),
       });
-      pugFile.contents.end(readFileSync('test/index.html'));
 
       // Create a prefixer plugin stream
       const converter = html2pug({ preserveLineBreaks: false });
@@ -69,7 +66,7 @@ describe('gulp-html2pug', () => {
 
       const file = cb.firstCall.args[0];
       expect(file.isBuffer()).to.equal(true);
-      expect(basename(file.path)).to.equal('index.pug');
+      expect(file.basename).to.equal('index.pug');
       expect(file.contents.toString()).to.equal(convertedPug);
     });
   });
@@ -95,7 +92,7 @@ describe('gulp-html2pug', () => {
 
       const file = cb.firstCall.args[0];
       expect(file.isBuffer()).to.equal(true);
-      expect(basename(file.path)).to.equal('fragment.pug');
+      expect(file.basename).to.equal('fragment.pug');
       expect(file.contents.toString()).to.equal('div foo');
     });
   });
