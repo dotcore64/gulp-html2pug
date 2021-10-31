@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib -s",
-    "lint": "eslint 'src/*.js' 'test/*.js'",
+    "lint": "eslint --cache .",
     "test": "mocha",
     "cover": "nyc npm test",
     "prepare": "npm run build"
