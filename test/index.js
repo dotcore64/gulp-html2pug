@@ -72,6 +72,40 @@ describe('gulp-html2pug', () => {
   });
 
   describe('html2pug options', () => {
+    it('should use default options', async () => {
+      const cb = spy();
+
+      // create the fake file
+      const pugFile = new File({
+        path: 'test/index.html',
+        contents: Buffer.from(readFileSync('test/index.html')),
+      });
+
+      // Create a prefixer plugin stream
+      const converter = html2pug();
+      converter.end(pugFile);
+
+      converter.on('data', cb);
+      await fromEvent(converter, 'end');
+
+      expect(cb).to.have.been.calledOnce();
+
+      const file = cb.firstCall.args[0];
+      expect(file.isBuffer()).to.equal(true);
+      expect(file.basename).to.equal('index.pug');
+      expect(file.contents.toString()).to.equal(`doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title gulp-html2pug test
+  body.
+    
+    gulp html2pug test
+    
+    
+    `);
+    });
+
     it('should convert given html fragment file', async () => {
       const cb = spy();
 
