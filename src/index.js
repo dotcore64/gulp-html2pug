@@ -17,7 +17,7 @@ const convert = (file) => (pug) => Object.assign(file, {
 
 const transform = (options) => nodeify(
   (file, enc) => vinylToString(file, enc)
-    .then((html) => html2pug(html, options))
+    .then(html2pug(?, options))
     .then(convert(file)),
 );
 
