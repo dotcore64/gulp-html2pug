@@ -45,7 +45,7 @@
     "plugin-error": "^1.0.1",
     "promise-toolbox": "^0.20.0",
     "through2": "^4.0.2",
-    "vinyl-contents-tostring": "^4.0.0"
+    "vinyl-contents-tostring": "^4.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
