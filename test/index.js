@@ -3,7 +3,7 @@ import File from 'vinyl';
 import { readFileSync, createReadStream } from 'fs';
 import { expect } from 'chai';
 import { spy } from 'sinon';
-import { fromEvent } from 'promise-toolbox';
+import { pEvent } from 'p-event';
 import vinylToString from 'vinyl-contents-tostring';
 
 // https://github.com/import-js/eslint-plugin-import/issues/1649
@@ -34,7 +34,7 @@ describe('gulp-html2pug', () => {
 
       // wait for the file to come back out
       converter.on('data', cb);
-      await fromEvent(converter, 'end');
+      await pEvent(converter, 'end');
 
       expect(cb).to.have.been.calledOnce();
       const file = cb.firstCall.args[0];
@@ -62,7 +62,7 @@ describe('gulp-html2pug', () => {
 
       // wait for the file to come back out
       converter.on('data', cb);
-      await fromEvent(converter, 'end');
+      await pEvent(converter, 'end');
 
       expect(cb).to.have.been.calledOnce();
 
@@ -88,7 +88,7 @@ describe('gulp-html2pug', () => {
       converter.end(pugFile);
 
       converter.on('data', cb);
-      await fromEvent(converter, 'end');
+      await pEvent(converter, 'end');
 
       expect(cb).to.have.been.calledOnce();
 
@@ -122,7 +122,7 @@ html(lang='en')
       converter.end(pugFile);
 
       converter.on('data', cb);
-      await fromEvent(converter, 'end');
+      await pEvent(converter, 'end');
 
       expect(cb).to.have.been.calledOnce();
 

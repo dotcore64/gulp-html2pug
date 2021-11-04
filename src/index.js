@@ -1,8 +1,8 @@
+import { callbackify } from 'util';
 import through from 'through2';
 import html2pug from 'html2pug';
 import vinylToString from 'vinyl-contents-tostring';
 import PluginError from 'plugin-error';
-import { nodeify } from 'promise-toolbox';
 
 const PLUGIN_NAME = 'gulp-html2pug';
 
@@ -15,7 +15,7 @@ const convert = (file) => (pug) => Object.assign(file, {
   extname: '.pug',
 });
 
-const transform = (options) => nodeify(
+const transform = (options) => callbackify(
   (file, enc) => vinylToString(file, enc)
     .then(html2pug(?, options))
     .then(convert(file)),
