@@ -1,6 +1,6 @@
 {
   "name": "gulp-html2pug",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "Gulp plugin to convert html files to pug",
   "main": "dist/index.cjs",
   "type": "module",
