@@ -1,8 +1,8 @@
-const through = require('through2');
-const html2pug = require('html2pug');
-const vinylToString = require('vinyl-contents-tostring');
-const PluginError = require('plugin-error');
-const { nodeify } = require('promise-toolbox');
+import through from 'through2';
+import html2pug from 'html2pug';
+import vinylToString from 'vinyl-contents-tostring';
+import PluginError from 'plugin-error';
+import { nodeify } from 'promise-toolbox';
 
 const PLUGIN_NAME = 'gulp-html2pug';
 
@@ -21,4 +21,4 @@ const transform = (options) => nodeify(
     .then(convert(file)),
 );
 
-module.exports = (options = {}) => through.obj(transform(options));
+export default (options = {}) => through.obj(transform(options));

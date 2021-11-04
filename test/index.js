@@ -1,12 +1,14 @@
-const File = require('vinyl');
+import File from 'vinyl';
 
-const { readFileSync, createReadStream } = require('fs');
-const { expect } = require('chai');
-const { spy } = require('sinon');
-const { fromEvent } = require('promise-toolbox');
-const vinylToString = require('vinyl-contents-tostring');
+import { readFileSync, createReadStream } from 'fs';
+import { expect } from 'chai';
+import { spy } from 'sinon';
+import { fromEvent } from 'promise-toolbox';
+import vinylToString from 'vinyl-contents-tostring';
 
-const html2pug = require('..');
+// https://github.com/import-js/eslint-plugin-import/issues/1649
+// eslint-disable-next-line import/no-unresolved,node/no-missing-import
+import html2pug from 'gulp-html2pug';
 
 const convertedPug = `doctype html
 html(lang='en')
