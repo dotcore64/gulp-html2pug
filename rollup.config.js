@@ -1,9 +1,9 @@
+import { builtinModules as builtins } from 'module';
 import babel from '@rollup/plugin-babel';
-import builtin from 'builtin-modules';
 import pkg from './package.json';
 
 const input = 'src/index.js';
-const external = Object.keys(pkg.dependencies).concat(builtin);
+const external = Object.keys(pkg.dependencies).concat(builtins);
 const plugins = [babel({ babelHelpers: 'bundled' })];
 
 export default [{
