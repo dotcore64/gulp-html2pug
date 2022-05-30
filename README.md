@@ -3,8 +3,6 @@
 [![Build Status][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coverage Status][coveralls-badge]][coveralls]
-[![Dependency Status][dependency-status-badge]][dependency-status]
-[![devDependency Status][dev-dependency-status-badge]][dev-dependency-status]
 
 > Convert html files to pug
 
@@ -42,9 +40,3 @@ See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
 [coveralls-badge]: https://img.shields.io/coveralls/dotcore64/gulp-html2pug/master.svg?style=flat-square
 [coveralls]: https://coveralls.io/r/dotcore64/gulp-html2pug
-
-[dependency-status-badge]: https://david-dm.org/dotcore64/gulp-html2pug.svg?style=flat-square
-[dependency-status]: https://david-dm.org/dotcore64/gulp-html2pug
-
-[dev-dependency-status-badge]: https://david-dm.org/dotcore64/gulp-html2pug/dev-status.svg?style=flat-square
-[dev-dependency-status]: https://david-dm.org/dotcore64/gulp-html2pug#info=devDependencies
