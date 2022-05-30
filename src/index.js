@@ -1,4 +1,4 @@
-import { callbackify } from 'util';
+import { callbackify } from 'node:util';
 import through from 'through2';
 import html2pug from 'html2pug';
 import vinylToString from 'vinyl-contents-tostring';

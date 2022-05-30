@@ -1,4 +1,4 @@
-import { readFileSync, createReadStream } from 'fs';
+import { readFileSync, createReadStream } from 'node:fs';
 
 import File from 'vinyl';
 import { expect } from 'chai';
@@ -7,7 +7,7 @@ import { pEvent } from 'p-event';
 import vinylToString from 'vinyl-contents-tostring';
 
 // https://github.com/import-js/eslint-plugin-import/issues/1649
-// eslint-disable-next-line import/no-unresolved,node/no-missing-import
+// eslint-disable-next-line import/no-unresolved,n/no-missing-import
 import html2pug from 'gulp-html2pug';
 
 const convertedPug = `doctype html
