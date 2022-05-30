@@ -1,5 +1,4 @@
 import { readFileSync, createReadStream } from 'fs';
-import { createRequire } from 'module';
 
 import File from 'vinyl';
 import { expect } from 'chai';
@@ -131,13 +130,6 @@ html(lang='en')
       expect(file.isBuffer()).to.equal(true);
       expect(file.basename).to.equal('fragment.pug');
       expect(file.contents.toString()).to.equal('div foo');
-    });
-  });
-
-  describe('cjs', () => {
-    it('should require cjs module', () => {
-      const require = createRequire(import.meta.url);
-      expect(require('..')).to.be.a('function');
     });
   });
 });

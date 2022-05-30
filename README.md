@@ -17,15 +17,14 @@ $ npm install --save-dev gulp-html2pug
 Convert `index.html` to `pug/index.pug`:
 
 ```js
-const gulp = require('gulp');
-const html2pug = require('gulp-html2pug');
+import gulp from 'gulp';
+import html2pug from 'gulp-html2pug';
 
-gulp.task('pug', function() {
-  // Backend locales
-  return gulp.src('index.html')
-  .pipe(html2pug(/* options for html2pug such as { fragment: true } */))
-  .pipe(gulp.dest('pug'));
-});
+gulp.task('pug', () => 
+  gulp.src('index.html')
+    .pipe(html2pug(/* options for html2pug such as { fragment: true } */))
+    .pipe(gulp.dest('pug'))
+);
 ```
 
 ## License
