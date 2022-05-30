@@ -1,8 +1,5 @@
-import { createRequire } from 'module';
 import { use } from 'chai';
 
-const require = createRequire(import.meta.url);
-
-use(require('chai-as-promised'));
-use(require('sinon-chai'));
-use(require('dirty-chai'));
+use((await import('chai-as-promised')).default); // eslint-disable-line node/no-unsupported-features/es-syntax
+use((await import('sinon-chai')).default); // eslint-disable-line node/no-unsupported-features/es-syntax
+use((await import('dirty-chai')).default); // eslint-disable-line node/no-unsupported-features/es-syntax
