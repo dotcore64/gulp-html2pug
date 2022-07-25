@@ -48,7 +48,7 @@
     "@babel/cli": "^7.18.9",
     "@babel/core": "^7.18.6",
     "@babel/eslint-parser": "^7.18.9",
-    "@babel/plugin-proposal-partial-application": "^7.18.6",
+    "@babel/plugin-proposal-partial-application": "^7.18.9",
     "@babel/plugin-proposal-throw-expressions": "^7.18.6",
     "c8": "^7.12.0",
     "chai": "^4.3.6",
