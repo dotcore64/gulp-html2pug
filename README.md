@@ -31,7 +31,7 @@ gulp.task('pug', () =>
 
 See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
 
-[build-badge]: https://img.shields.io/github/workflow/status/dotcore64/gulp-html2pug/test/master?style=flat-square
+[build-badge]: https://img.shields.io/github/actions/workflow/status/dotcore64/gulp-html2pug/test.yml?event=push&style=flat-square
 [build]: https://github.com/dotcore64/gulp-html2pug/actions
 
 [npm-badge]: https://img.shields.io/npm/v/gulp-html2pug.svg?style=flat-square
