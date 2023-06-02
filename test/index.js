@@ -7,7 +7,7 @@ import { pEvent } from 'p-event';
 import vinylToString from 'vinyl-contents-tostring';
 
 // https://github.com/import-js/eslint-plugin-import/issues/1649
-// eslint-disable-next-line import/no-unresolved,n/no-missing-import
+// eslint-disable-next-line import/no-unresolved
 import html2pug from 'gulp-html2pug';
 
 const convertedPug = `doctype html
