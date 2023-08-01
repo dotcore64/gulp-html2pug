@@ -10,6 +10,10 @@ updates:
           - perrin4869
       assignees:
           - perrin4869
+      groups:
+        babel:
+          patterns:
+            - "@babel/*"
     - package-ecosystem: github-actions
       directory: /
       schedule:
