@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.22.5",
-    "@babel/core": "^7.22.5",
+    "@babel/core": "^7.22.9",
     "@babel/eslint-parser": "^7.22.5",
     "@babel/plugin-proposal-partial-application": "^7.22.5",
     "@babel/plugin-proposal-throw-expressions": "^7.22.5",
