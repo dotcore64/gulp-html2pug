@@ -45,11 +45,11 @@
     "vinyl-contents-tostring": "^6.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.23.9",
-    "@babel/core": "^7.24.0",
-    "@babel/eslint-parser": "^7.23.10",
-    "@babel/plugin-proposal-partial-application": "^7.23.3",
-    "@babel/plugin-proposal-throw-expressions": "^7.23.3",
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.3",
+    "@babel/eslint-parser": "^7.24.1",
+    "@babel/plugin-proposal-partial-application": "^7.24.1",
+    "@babel/plugin-proposal-throw-expressions": "^7.24.1",
     "c8": "^9.1.0",
     "chai": "^4.4.1",
     "chai-as-promised": "^7.1.1",
