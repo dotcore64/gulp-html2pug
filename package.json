@@ -50,7 +50,7 @@
     "@babel/eslint-parser": "^7.25.9",
     "@babel/plugin-proposal-partial-application": "^7.25.9",
     "@babel/plugin-proposal-throw-expressions": "^7.25.9",
-    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.0",
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
     "c8": "^10.1.2",
     "chai": "^4.5.0",
     "chai-as-promised": "^8.0.0",
