@@ -45,8 +45,8 @@
     "vinyl-contents-tostring": "^7.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.28.0",
-    "@babel/core": "^7.28.0",
+    "@babel/cli": "^7.28.3",
+    "@babel/core": "^7.28.3",
     "@babel/eslint-parser": "^7.28.0",
     "@babel/plugin-proposal-partial-application": "^7.27.1",
     "@babel/plugin-proposal-throw-expressions": "^7.27.1",
