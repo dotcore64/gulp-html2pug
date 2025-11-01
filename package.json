@@ -46,8 +46,8 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.28.3",
-    "@babel/core": "^7.28.4",
-    "@babel/eslint-parser": "^7.28.4",
+    "@babel/core": "^7.28.5",
+    "@babel/eslint-parser": "^7.28.5",
     "@babel/plugin-proposal-partial-application": "^7.27.1",
     "@babel/plugin-proposal-throw-expressions": "^7.27.1",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
