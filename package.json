@@ -51,7 +51,7 @@
     "@babel/plugin-proposal-partial-application": "^7.27.1",
     "@babel/plugin-proposal-throw-expressions": "^7.27.1",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.7.1",
-    "c8": "^10.1.3",
+    "c8": "^11.0.0",
     "chai": "^6.2.2",
     "chai-as-promised": "^8.0.2",
     "dirty-chai": "^3.0.0",
