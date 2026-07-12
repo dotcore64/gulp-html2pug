@@ -45,11 +45,11 @@
     "vinyl-contents-tostring": "^9.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.28.6",
-    "@babel/core": "^7.29.0",
-    "@babel/eslint-parser": "^7.28.6",
-    "@babel/plugin-proposal-partial-application": "^7.27.1",
-    "@babel/plugin-proposal-throw-expressions": "^7.27.1",
+    "@babel/cli": "^8.0.4",
+    "@babel/core": "^8.0.1",
+    "@babel/eslint-parser": "^8.0.1",
+    "@babel/plugin-proposal-partial-application": "^8.0.1",
+    "@babel/plugin-proposal-throw-expressions": "^8.0.1",
     "@eslint-community/eslint-plugin-eslint-comments": "^4.7.2",
     "@eslint/js": "^9.39.5",
     "c8": "^11.0.0",
