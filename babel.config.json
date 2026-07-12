@@ -1,0 +1,6 @@
+{
+  "plugins": [
+    "@babel/proposal-throw-expressions",
+    "@babel/proposal-partial-application"
+  ]
+}
